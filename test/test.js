@@ -1,7 +1,7 @@
 const assert = require('assert');
 const expect = require('chai').expect;
 
-const { Pixel } = require('../index');
+const { Image, Pixel } = require('../index');
 
 describe('Pixel', function() {
   it('Can be black', function() {
@@ -17,5 +17,13 @@ describe('Pixel', function() {
   it('Should have always a color', function() {
     const aPixel = new Pixel();
     expect(aPixel.color).to.equal('white');
+  });
+});
+
+describe('Image', function() {
+  it('Can create a 1 pixel squared image', function() {
+    const aPixel = new Pixel('black');
+    const anImage = new Image([aPixel]);
+    expect(anImage.size).to.deep.equal([1,1]);
   });
 });

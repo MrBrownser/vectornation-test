@@ -8,7 +8,17 @@ class Pixel {
   }
 }
 
-module.exports = { Pixel };
+class Image {
+  constructor(initialImage) {
+    this._image = initialImage;
+  }
+
+  get size() {
+    return [this._image.length, this._image.length];
+  }
+}
+
+module.exports = { Image, Pixel };
 
 
 /**
