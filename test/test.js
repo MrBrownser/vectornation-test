@@ -13,4 +13,9 @@ describe('Pixel', function() {
     const aPixel = new Pixel('white');
     expect(aPixel.color).to.equal('white');
   });
+
+  it('Should have always a color', function() {
+    const aPixel = new Pixel();
+    expect(aPixel.color).to.equal('white');
+  });
 });
