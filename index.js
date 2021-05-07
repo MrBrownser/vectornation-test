@@ -14,15 +14,16 @@ class Image {
   }
 
   get size() {
-    return [this._image.length, this._image.length];
+    if (this._image.length) {
+      if (Array.isArray(this._image[0])) {
+        return [this._image.length, this._image[0].length];
+      } else {
+        return [this._image.length, this._image.length];
+      }
+    } else {
+      return 0;
+    }
   }
 }
 
 module.exports = { Image, Pixel };
-
-
-/**
- * An Image will be a multidimensional Array.
- * Image(1 x 1) = [Pixel];
- * Image(2 x 2) = [[Pixel, Pixel], [Pixel, Pixel]];
- */

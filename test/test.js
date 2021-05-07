@@ -26,4 +26,12 @@ describe('Image', function() {
     const anImage = new Image([aPixel]);
     expect(anImage.size).to.deep.equal([1,1]);
   });
+
+  it('Can create a 2x2 pixels (4 tiles) squared image', function() {
+    const anImage = new Image(
+      [new Pixel(), new Pixel()],
+      [new Pixel(), new Pixel()],
+    );
+    expect(anImage.size).to.deep.equal([2,2]);
+  });
 });
