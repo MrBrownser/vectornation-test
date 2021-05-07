@@ -23,11 +23,26 @@ class Image {
       return 0;
     }
   }
+
+  get width() {
+    return this.size[0];
+  }
+  get height() {
+    return this.size[1];
+  }
+
+  get image() {
+    return this._image;
+  }
 }
 
 function mergePixels(pixel1, pixel2) {
-  if (pixel1.color === 'black' || pixel2.color === 'black') return 'black';
-  return 'white';
+  if (pixel1.color === 'black' || pixel2.color === 'black') return new Pixel('black');
+  return new Pixel('white');
 }
 
-module.exports = { Image, mergePixels, Pixel };
+module.exports = {
+  Image,
+  mergePixels,
+  Pixel,
+};
