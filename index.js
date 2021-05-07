@@ -25,4 +25,9 @@ class Image {
   }
 }
 
-module.exports = { Image, Pixel };
+function mergePixels(pixel1, pixel2) {
+  if (pixel1.color === 'black' || pixel2.color === 'black') return 'black';
+  return 'white';
+}
+
+module.exports = { Image, mergePixels, Pixel };
