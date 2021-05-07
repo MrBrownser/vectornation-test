@@ -41,8 +41,17 @@ function mergePixels(pixel1, pixel2) {
   return new Pixel('white');
 }
 
+function mergeImages(image1, image2) {
+  let finalImage;
+  if (image1.width === 1 && image1.height === 1 ) {
+    finalImage = new Image([ mergePixels(image1.image[0], image2.image[0]) ]);
+  }
+  return finalImage;
+}
+
 module.exports = {
   Image,
+  mergeImages,
   mergePixels,
   Pixel,
 };

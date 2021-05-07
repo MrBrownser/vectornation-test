@@ -3,6 +3,7 @@ const expect = require('chai').expect;
 
 const {
   Image,
+  mergeImages,
   mergePixels,
   Pixel,
 } = require('../index');
@@ -84,6 +85,17 @@ describe('Image', function() {
       ]);
       expect(anImage.image[0][1].color).to.equal('black');
       expect(anImage.image[1][0].color).to.equal('black');
+    });
+  });
+
+  describe('Merging SAME SIZE images', function() {
+    it('Can merge 2 1x1 Images', function() {
+      const firstImage = new Image([new Pixel()]);
+      const secondImage = new Image([new Pixel('black')]);
+      const merged = mergeImages(firstImage, secondImage);
+
+      expect(merged instanceof Image).to.be.true;
+      expect(merged.size).to.deep.equal([1,1]);
     });
   });
 });
