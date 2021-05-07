@@ -7,7 +7,6 @@ class Pixel {
     return this._color;
   }
 }
-
 class Image {
   constructor(initialImage) {
     this._image = initialImage;
@@ -16,7 +15,7 @@ class Image {
   get size() {
     if (this._image.length) {
       if (Array.isArray(this._image[0])) {
-        return [this._image.length, this._image[0].length];
+        return [this._image[0].length, this._image.length];
       } else {
         return [this._image.length, this._image.length];
       }
